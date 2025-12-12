@@ -37,7 +37,22 @@
       </form>
     </div>
     <div class="product__list">
-      
+      <div class="flex__item wrap">
+        @foreach($products as $product)
+        <div class="product__card">
+            <div class="card__img">
+                <img src="{{ asset('img/image'.$product->image.'.png') }}" alt="" />
+            </div>
+            <div class="card__content">
+                <div class="tag">
+                    <p class="card__tag">{{$product->name}}</p>
+                    <p class="card__price">¥ {{$product->price}}</p>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+    
     </div>
   </div>
 </div>

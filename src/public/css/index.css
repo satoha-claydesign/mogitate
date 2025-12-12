@@ -72,7 +72,67 @@
     width: 80%;
 }
 
+/* カード表示 */
 
+.flex__item {
+    display: flex;
+    max-width: 1200px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.product__card {
+    width: 30%;
+    margin: 0 auto 40px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+/* .card__img {
+    max-width: 100%;
+} */
+
+.card__img img {
+    width: 100%;
+}
+
+.card__content {
+    padding: 15px;
+}
+
+/* .card__cat {
+    display: inline;
+    background-color: #008888;
+    color: #fff;
+    margin-top: 15px;
+    padding: 3px;
+    font-size: 14px;
+} */
+
+/* .card__ttl {
+    font-size: 18px;
+    padding-bottom: 30px;
+} */
+
+.tag {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+.card__tag {
+    color: #000;
+    margin-right: 40px;
+}
+
+.card__price {
+    color: #888888;
+}
+
+
+/* 使うかわからないやつ */
 .todo__content {
     margin: 0 auto;
     padding: 30px 15px;
