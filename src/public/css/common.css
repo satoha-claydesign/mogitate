@@ -1,0 +1,32 @@
+body {
+    background-color: #f8f8f8;
+}
+
+
+.header {
+    background: #ffffff;
+}
+
+.header__inner {
+    margin: 0 auto;
+    padding: 20px 15px;
+}
+
+.header-utilities {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo {
+    color: #f7d656;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.header-nav__link {
+    color: #fff;
+    text-decoration: none;
+}
