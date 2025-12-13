@@ -26,22 +26,31 @@
   </div>
   <div class="product__content">
     <div class="product__sidebar">
-      <form class="keyword-search" action="">
+      <form class="keyword-search" action="/search" method="get">
+        @csrf
         <input type="text" class="search-form__item-input keyword-input" name="keyword"
-                placeholder="商品名で検索" />
-        <button class="product__search-button">検索</button>
+                placeholder="商品名で検索" value="{{request('keyword')}}" />
+        <div class="search-form__actions">
+          <input class="product__search-button" type="submit" value="検索">
+        </div>
       </form>
       <h3 class="sort-title">価格帯で表示</h3>
-      <form action="">
-        <select class="search-form__item-input price-sort" name="" id="" placeholder="価格で並び替え" ></select>
+      <form action="/sort" method="get">
+        @csrf
+        <select class="search-form__item-input price-sort" name="order" onchange="this.form.submit()">
+          <option value="hidden" >価格で並び替え</option>
+          <option value="desc" >高い順に表示</option>
+          <option value="asc" >低い順に表示</option>
+        </select>
       </form>
     </div>
     <div class="product__list">
       <div class="flex__item wrap">
         @foreach($products as $product)
+        <a class="product__card-box" href="/products/{{ $product->id }}">
         <div class="product__card">
             <div class="card__img">
-                <img src="{{ asset('img/image'.$product->image.'.png') }}" alt="" />
+                <img src="{{ asset('img/'.$product->image.'.png') }}" alt="" />
             </div>
             <div class="card__content">
                 <div class="tag">
@@ -50,6 +59,7 @@
                 </div>
             </div>
         </div>
+        </a>
         @endforeach
     </div>
     
