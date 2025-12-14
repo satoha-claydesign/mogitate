@@ -22,7 +22,7 @@
 <div class="product__inner">
   <div class="product__title">
     <h2>商品一覧</h2>
-    <button class="product__add-button">+商品を追加</button>
+    <a class="product__add-button" href="/register">+商品を追加</a>
   </div>
   <div class="product__content">
     <div class="product__sidebar">
@@ -50,7 +50,7 @@
         <a class="product__card-box" href="/products/{{ $product->id }}">
         <div class="product__card">
             <div class="card__img">
-                <img src="{{ asset('img/'.$product->image.'.png') }}" alt="" />
+                <img src="{{ asset('storage/img/' . $product->image) }}" alt="" />
             </div>
             <div class="card__content">
                 <div class="tag">

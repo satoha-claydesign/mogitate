@@ -58,7 +58,7 @@
         <a class="product__card-box" href="/products/{{ $product->id }}">
             <div class="product__card">
                 <div class="card__img">
-                    <img src="{{ asset('img/'.$product->image.'.png') }}" alt="" />
+                    <img src="{{ asset('storage/img/' . $product->image) }}" alt="" />
                 </div>
                 <div class="card__content">
                     <div class="tag">
