@@ -27,6 +27,7 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
+        $keyword = $request->input('keyword');
         $query = Product::query();
 
         $query = $this->getSearchQuery($request, $query);
@@ -34,7 +35,9 @@ class ProductController extends Controller
         $products = $query->paginate(6);
 
         $seasons = Season::all();
-        return view('products.index', compact('products', 'seasons'));
+
+        $viewData['keyword'] = $keyword;
+        return view('products.index', compact('products', 'seasons'), $viewData);
     }
 
     public function sort(Request $request)
@@ -87,6 +90,9 @@ class ProductController extends Controller
             return redirect('/')->withInput();
         }
 
+        $product = Product::create($request->all());
+        $product->seasons()->attach(request()->allseason_ids);  //attachメソッドを利用して、中間テーブルにデータを追加
+
         if ($request->hasFile('image')) {
         // 既存画像の削除 (storage/app/public/images/ の中のパス)
             $dir = 'img';
@@ -94,22 +100,19 @@ class ProductController extends Controller
             $file= $request->file('image');
             $file_name = $request->file('image')->getClientOriginalName();
             $path = $file->storeAs('public/img', $file_name); // storage/app/public/img/ に保存
+            $product->image = basename($path);
         }
-        $seasonIds = $request->input('allseason_ids', []);
+        $product->save();
 
-        Product::create([
-                'name' => $request->name,
-                'price' => $request->price,
-                'image' => basename($path),
-                'description' => $request->description,
-                'season_ids' => syc($seasonIds),
-        ]);
-        //季節の更新
-        
         $products = Product::all();
         $allseasons = Season::all();
-        
-        return view('products', compact('product', 'allseasons'));
+        return view('products.index', compact('products', 'allseasons'));
+    }
+
+    public function destroy(Request $request)
+    {
+        Product::find($request->id)->delete();
+        return redirect('/');
     }
 
     private function getSearchQuery($request, $query)

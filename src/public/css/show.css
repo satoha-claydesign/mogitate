@@ -125,3 +125,16 @@ input[type="file"] {
 .form__error {
     color: red;
 }
+form.show__form-delete {
+    text-align: right;
+    margin-top: -36px;
+}
+.show__form__delete-mark {
+    background: transparent;
+    border: none;
+}
+.show__form__delete-mark>img {
+    width: 25px;
+    height: 30px;
+    cursor: pointer;
+}

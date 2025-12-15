@@ -76,4 +76,9 @@
         <input class="show-form__send-btn btn" type="submit" value="変更を保存" name="send">
     </div>
 </form>
+<form class="show__form-delete" action="/delete" method="post">
+    @csrf
+    <input type="hidden" name="id" value="{{ $product->id }}">
+    <button class="show__form__delete-mark" type="submit" value=""><img src="{{ asset('storage/image/24937542.png') }}" alt=""></button>
+</form>
 @endsection
