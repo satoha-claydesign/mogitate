@@ -81,7 +81,7 @@ class ProductController extends Controller
 
         Product::find($request->id)->update($product);
 
-        return redirect('/')->with('message', '更新しました');;
+        return redirect('/')->with('message', '更新しました');
     }
 
     public function store(ProductRequest $request, Product $product)
@@ -104,9 +104,9 @@ class ProductController extends Controller
         }
         $product->save();
 
-        $products = Product::all();
+        $products = Product::paginate(6);
         $allseasons = Season::all();
-        return view('products.index', compact('products', 'allseasons'));
+        return redirect('/')->with('message', '商品を追加しました');
     }
 
     public function destroy(Request $request)
