@@ -67,7 +67,7 @@ php artisan storage:link
 
 ## ER 図
 
-![alt](erd.png)
+![alt](er.png)
 
 ## URL
 
