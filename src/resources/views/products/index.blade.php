@@ -37,6 +37,7 @@
       <h3 class="sort-title">価格帯で表示</h3>
       <form action="/sort" method="get">
         @csrf
+        <input type="hidden" name="keyword" value="{{request('keyword')}}" />
         <select class="search-form__item-input price-sort" name="order"  onchange="this.form.submit()">
           <option value="hidden" >価格で並び替え</option>
           <option value="desc" >高い順に表示</option>

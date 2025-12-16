@@ -43,8 +43,23 @@ class ProductController extends Controller
     public function sort(Request $request)
     {
         $sortDirection = $request->input('order', 'desc');
-        $products = Product::orderBy('price', $sortDirection)->paginate(6);
-        return view('products.sort', compact('products', 'sortDirection'));
+        
+        if(!empty($request->keyword)) {
+            $keyword = $request->input('keyword');
+            $query = Product::query();
+            $query = $this->getSearchQuery($request, $query);
+            $products = $query->orderBy('price', $sortDirection)->paginate(6);
+            $viewData['keyword'] = $keyword;
+
+            return view('products.sort', compact('products', 'sortDirection'), $viewData);
+        }
+
+        else {
+            $products = Product::orderBy('price', $sortDirection)->paginate(6);
+
+            return view('products.sort', compact('products', 'sortDirection'));
+        }
+
     }
 
     public function show($id)
