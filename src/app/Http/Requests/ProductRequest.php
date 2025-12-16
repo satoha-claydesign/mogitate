@@ -42,6 +42,7 @@ class ProductRequest extends FormRequest
             'price.max' => '値段は0∼10000円以内で入力してください',
             'price.min' => '値段は0∼10000円以内で入力してください',
             'image.required' => '画像を登録してください',
+            'image.image' => '「.png」または「.jpeg」形式でアップロードしてください',
             'image.mimes' => '「.png」または「.jpeg」形式でアップロードしてください',
             'allseason_ids.required' => '季節を選択してください',
             'description.required' => '商品説明を入力してください',

@@ -96,7 +96,7 @@ input[type="file"] {
     background-color: #b5b4b4;
 }
 
-.form__error {
+.form__error, .color-red {
     color: red;
 }
 
@@ -106,4 +106,9 @@ input[type="file"] {
     margin-left: 10px;
     font-size: 14px;
     color: #fff;
+}
+
+.color-red {
+    margin-left: 10px;
+    font-size: 14px;
 }

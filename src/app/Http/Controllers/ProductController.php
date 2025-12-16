@@ -14,7 +14,7 @@ class ProductController extends Controller
     public function index()
     {
         $seasons = Season::all();
-        $products = Product::all();
+        $products = Product::paginate(6);;
         return view('products.index', compact('products', 'seasons'));
     }
 
@@ -43,7 +43,7 @@ class ProductController extends Controller
     public function sort(Request $request)
     {
         $sortDirection = $request->input('order', 'desc');
-        $products = Product::orderBy('price', $sortDirection)->get();
+        $products = Product::orderBy('price', $sortDirection)->paginate(6);
         return view('products.sort', compact('products', 'sortDirection'));
     }
 

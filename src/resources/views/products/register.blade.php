@@ -14,14 +14,14 @@
     <div class="show-group">
         <div class="show__info">
             <p class="show__info-title">商品名<span class="form__required">必須</span></p>
-            <input class="show__info-input" name="name" value="">
+            <input class="show__info-input" name="name" value="" placeholder="商品名を入力">
             <p class="form__error">
                 @error('name')
                 {{ $message }}
                 @enderror
             </p>
             <p class="show__info-title">値段<span class="form__required">必須</span></p>
-            <input class="show__info-input" name="price" value="">
+            <input class="show__info-input" name="price" value="" placeholder="値段を入力">
             <p class="form__error">
                 @error('price')
                 {{ $message }}
@@ -38,7 +38,7 @@
                 {{ $message }}
                 @enderror
             </p>
-            <p class="show__info-title">季節<span class="form__required">必須</span></p>
+            <p class="show__info-title">季節<span class="form__required">必須</span><span class="color-red">複数選択可</span></p>
             <div class="show__input--checkbox">
                 @foreach ($allseasons as $allseason)
                 <input class="show-checkbox" type="checkbox" name="allseason_ids[]" value="{{ $allseason->id }}" /><label>{{ $allseason->name }}</label>
@@ -51,7 +51,7 @@
             </p>
             <div class="show__description">
             <p class="show__info-title">商品説明<span class="form__required">必須</span></p>
-            <textarea class="show__info-input description-box" name="description" value=""></textarea>
+            <textarea class="show__info-input description-box" name="description" value="" placeholder="商品の説明を入力"></textarea>
             <p class="form__error">
                 @error('description')
                 {{ $message }}

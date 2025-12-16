@@ -37,7 +37,7 @@
       <h3 class="sort-title">価格帯で表示</h3>
       <form action="/sort" method="get">
         @csrf
-        <select class="search-form__item-input price-sort" name="order" onchange="this.form.submit()">
+        <select class="search-form__item-input price-sort" name="order"  onchange="this.form.submit()">
           <option value="hidden" >価格で並び替え</option>
           <option value="desc" >高い順に表示</option>
           <option value="asc" >低い順に表示</option>
@@ -62,7 +62,8 @@
         </a>
         @endforeach
     </div>
-    
+    <div class="page__parts">
+          {{ $products->links() }}
     </div>
   </div>
 </div>

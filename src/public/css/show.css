@@ -40,6 +40,10 @@ h1 {
     max-width: 90%;
 }
 
+.show__image-info {
+    margin-top: 10px;
+}
+
 .show__image-info label {
     padding: 5px 10px;
     background-color: #d6d7d7;
