@@ -58,6 +58,13 @@ php artisan db:seed
 php artisan storage:link
 ```
 
+9. 画像ディレクトリのコピー
+
+```bash
+cp -r src/public/images src/storage/app/public 
+```
+
+
 ## 使用技術(実行環境)
 
 * PHP 8.1.33
